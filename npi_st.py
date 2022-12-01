@@ -10,10 +10,11 @@ import gdown
 
 @st.cache
 def get_data():
-    url = 'https://drive.google.com/file/d/1xdqk-wRVMmivpCPiTQs4ut5hYE9mvHth/view?usp=sharing'
-    output = 'serialized_data/spacy_model_output'
-    gdown.download(url, output, quiet=False)
-
+    file_id = '1xdqk-wRVMmivpCPiTQs4ut5hYE9mvHth'
+    gdown.download(
+        f"https://drive.google.com/uc?export=download&confirm=pbef&id={file_id}",
+        output
+    )
     npi1 = pd.read_csv('npi1.csv')
     npi2 = pd.read_csv('npi2.csv')
     npi3 = pd.read_csv('npi3.csv')
