@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ -d '/taylor_blood_sem_search_st']; then 
+if [ -d 'taylor_blood_sem_search_st']; then 
     git pull
     echo "Running app..."
     streamlit run npi_st.py

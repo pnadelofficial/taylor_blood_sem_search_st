@@ -58,7 +58,10 @@ class SemanticSearch():
         sim = pd.DataFrame({'sents':self.df.sents.to_list(), 'sent_docs':docs.to_list()})
 
         if streamlit == True:
-            sim_score = sim['sent_docs'].progress_apply(lambda x: x.similarity(search_vec)).sort_values(ascending=False)[0:entries]
+            try:
+                sim_score = sim['sent_docs'].progress_apply(lambda x: x.similarity(search_vec)).sort_values(ascending=False)[0:entries]
+            except:
+                sim_score = sim['sent_docs'].apply(lambda x: x.similarity(search_vec)).sort_values(ascending=False)[0:entries]
         else:
             sim_score = sim['sent_docs'].apply(lambda x: x.similarity(search_vec)).sort_values(ascending=False)[0:entries]
         sim_df = sim_score.reset_index().rename(columns={'index':'org_idx'})
