@@ -1,0 +1,8 @@
+gdown==4.5.3
+ipython==8.7.0
+nltk==3.7
+pandas==1.4.4
+spacy==3.3.1
+stqdm==0.0.4
+streamlit==1.15.1
+tqdm==4.64.1
