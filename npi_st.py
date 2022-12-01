@@ -11,6 +11,7 @@ import gdown
 @st.cache
 def get_data():
     file_id = '1xdqk-wRVMmivpCPiTQs4ut5hYE9mvHth'
+    output = 'serialized_data/spacy_model_output'
     gdown.download(
         f"https://drive.google.com/uc?export=download&confirm=pbef&id={file_id}",
         output
