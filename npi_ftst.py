@@ -11,7 +11,8 @@ stqdm.pandas()
 
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def load_model():
-    fasttext.util.download_model('en', if_exists='ignore')  # English
+    #fasttext.util.download_model('en', if_exists='ignore')  # English
+    st.file_uploader('Update FastText model.', type='bin')
     ft = fasttext.load_model('cc.en.300.bin')
     return ft
 ft = load_model()
