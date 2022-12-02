@@ -6,13 +6,14 @@ import streamlit as st
 import fasttext
 import fasttext.util
 import nltk
+import subprocess
 from stqdm import stqdm
 stqdm.pandas()
 
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def load_model():
-    #fasttext.util.download_model('en', if_exists='ignore')  # English
-    st.file_uploader('Update FastText model.', type='bin')
+    fasttext.util.download_model('en', if_exists='ignore')  # English
+    subprocess.run(['rm', 'cc.en.300.bin.gz'])
     ft = fasttext.load_model('cc.en.300.bin')
     return ft
 ft = load_model()
